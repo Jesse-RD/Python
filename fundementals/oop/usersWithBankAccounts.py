@@ -11,7 +11,7 @@ class BankAccount:
     def display_account_info(self):
         print("Balance:", self.balance)
     def yield_interest(self):
-        print("Balance:", self.balance * self.int_rate)
+        print("Interest Yield:", self.balance * self.int_rate)
         return self
 
 class User:
@@ -29,6 +29,8 @@ class User:
 jesse = User("Jesse")
 
 # Transaction Examples
-jesse.account.deposit(600).withdraw(320)
+jesse.account.deposit(13700).withdraw(1020).deposit(365)
 jesse.display_user_balance()
 
+# With Interest Yield
+jesse.account.yield_interest()
