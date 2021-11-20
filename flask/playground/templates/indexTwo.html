@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <style>
+        .color {
+            background-color: var(--color);
+        }
+    </style>
+    <title>Playground</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    
+    {% for i in range(0, num) %}
+        {% if color == white %}
+            <p class="color" style="background-color: aqua"></p>
+        {% else %}
+        <p class="color" style="--color: {{color}}"></p>
+        {% endif %}
+    {% endfor %}
+    
+</body>
+</html>

@@ -1,0 +1,22 @@
+body {
+    margin: auto;
+    max-width: fit-content;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+}
+
+p {
+    margin-left: 15px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 425px;
+    height: 425px;
+    box-sizing: border-box;
+    border: 5px solid black;
+    border-radius: 10%;
+    display: inline-block;
+    justify-content: center;
+}
