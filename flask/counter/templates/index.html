@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Counter</title>
+</head>
+<body>
+    <div class="d-grid gap-2 justify-content-md-center border border-3 border-info custom">
+        <h1 class="text-xl-center text-primary">Session Counter</h1>
+        <h3 class="text-xl-center text-secondary">{{ session.count }}</h3>
+        <div class="mx-auto">
+            <form action="/count" method="post">
+                <button type="submit" class="btn btn-primary btn-lg" name="addTwo" value="addTwo">Add Two!</button>
+            </form>
+        </div>
+        <div class="mx-auto">
+            <form action="/destroy_session" method="post">
+                <button type="submit" class="btn btn-danger btn-lg" name="reset" value="reset">Reset!</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
