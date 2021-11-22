@@ -17,7 +17,7 @@ def counter():
 def reset_counter():
     if request.form['reset']:
         session.clear()
-        session['count'] = 0
+        session['count'] = -1
     return redirect('/')
 
 if __name__ == "__main__":
