@@ -10,7 +10,8 @@
 <body>
     <div class="d-flex justify-content-center">
         <div class="flex-column bg-secondary mt-3 p-3 rounded-2 w-30">
-            <div class="text-danger text-center">
+            <h1 class="text-center p-1 text-white">Account Creation</h1>
+            <div class="text-danger text-center bg-warning">
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         {% for message in messages %}
@@ -19,7 +20,6 @@
                     {% endif %}
                 {% endwith %}
             </div>
-            <h1 class="text-center p-1 text-white">Account Creation</h1>
             <h3 class="mt-4 mb-3 text-info">Enter Your Email</h3>
             <form class="mb-3" action="/process_user" method="POST">
                 <label class="form-label text-white fw-bold" for="email">Email:</label>

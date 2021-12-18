@@ -28,12 +28,14 @@ def process_user():
         'fav_language': request.form['fav_language']
     }
     user_id = Users.save(data)
-    Users.save(request.form)
+    session['user_id'] = user_id
     return redirect('/')
 
 
 @app.route('/login', methods=["POST"])
 def user_login():
+    if 'user_id' in session:
+        return redirect('/profile')
     data = {'email': request.form['email']}
     user_with_email = Users.get_by_email(data)
     if user_with_email == False:
@@ -42,8 +44,8 @@ def user_login():
     if not bcrypt.check_password_hash(user_with_email.password, request.form['password']):
         flash("Invalid Email/Password.")
         return redirect('/')
-    session['user_id'] = user_with_email.id
     user_id = user_with_email.id
+    session['user_id'] = user_id
     return redirect('/profile')
 
 @app.route('/profile')

@@ -13,7 +13,7 @@
         <div class="flex-column bg-secondary mt-3 p-3 rounded-2 w-25">
             <h1 class="form-label text-white fw-bold text-center mb-5">Login</h1>
             <form class="mb-3" action="/login" method="POST">
-                <div class="text-danger text-center">
+                <div class="text-danger text-center bg-warning">
                     {% with messages = get_flashed_messages() %}
                         {% if messages %}
                             {% for message in messages %}
