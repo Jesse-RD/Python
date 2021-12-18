@@ -29,7 +29,7 @@ def process_user():
     }
     user_id = Users.save(data)
     session['user_id'] = user_id
-    return redirect('/')
+    return redirect('/profile')
 
 
 @app.route('/login', methods=["POST"])
