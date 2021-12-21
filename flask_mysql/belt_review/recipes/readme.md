@@ -3,7 +3,7 @@ Read Me
 
 - Launch MySQL Workbench
 
-- Open and Forward Engineer login_and_registration.mwb
+- Open and Forward Engineer recipes_sch.mwb
 
 - In config/mysqlconnection, change the connection password to your MySQL server password
 
