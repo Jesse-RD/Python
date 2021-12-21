@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css\bootstrap.css') }}">
+    <title>New Recipe</title>
+</head>
+<body>
+    <div class="d-flex justify-content-center">
+        <div class="bg-secondary mt-3 p-3 rounded-2 w-75">
+            <h1 class="text-center p-1 text-info mb-5">New Recipe</h1>
+            <div class="text-danger text-center bg-warning">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <form class="mb-3 d-flex position-relative" action="/process_recipe" method="POST">
+                <div class="flex-fill w-50 mx-5">
+                    <label class="form-label text-white fw-bold" for="name">Recipe Name:</label>
+                    <textarea class="form-control" name="name" id="name" cols="30" rows="1" placeholder="Enter recipe name"></textarea>
+                    <label class="form-label text-white fw-bold" for="descr">Description:</label>
+                    <textarea class="form-control" name="descr" id="descr" cols="30" rows="2" placeholder="Please provide a brief description"></textarea>
+                    <label class="form-label text-white fw-bold" for="inst">Instructions:</label>
+                    <textarea class="form-control" name="inst" id="inst" cols="30" rows="5" placeholder="Please provide instructions"></textarea>
+                    <div class="justify-content-between mt-5">
+                        <input class="btn btn-success mt-1 fw-bold" type="submit" value="Add Recipe">
+                        <a class="btn btn-primary ms-3 mt-1 fw-bold" href="/profile/{{user_profile.id}}">My Profile</a>
+                    </div>
+                </div>
+                <div class="container input-group mt-3 flex-fill w-25 mt-4 mx-5">
+                    <div class="input-group h-25 mt-5">
+                        <label class="form-label text-white fw-bold me-1" for="dob">Date Made:</label>
+                        <div class="mb-3 me-5 ms-1"><input class="form-control" type="date" name="d_made"></div>
+                    </div>
+                    <div class="d-flex w-100 mb-5">
+                        <label class="form-label text-white fw-bold mt-1" for="thirty">Made In Under 30 Minutes?</label>
+                        <div class="input-group flex-column ms-3">
+                            <div class="form-check">
+                                <label class="form-label text-white fw-bold" for="yes">Yes</label>
+                                <input class="form-check-input" type="radio" name="thirty" id="Yes" value="1">
+                            </div>
+                            <div class="form-check">
+                                <label class="form-label text-white fw-bold" for="no">No</label>
+                                <input class="form-check-input" type="radio" name="thirty" id="Yes" value="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
